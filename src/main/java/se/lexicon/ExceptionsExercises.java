@@ -83,4 +83,13 @@ public class ExceptionsExercises {
         }
 
     }
+    // Exercise 6: method takes a string as input and checks if it is a valid email, throwing an IllegalArgumentException if it is not.
+    public void exercise6() {
+        String email = IO.readln("Enter an email address: ");
+        if (email == null || !email.contains("@") || !email.contains(".")) {
+            throw new IllegalArgumentException("Invalid email format.");
+        } else {
+            IO.println("Valid email: " + email);
+        }
+    }
 }
