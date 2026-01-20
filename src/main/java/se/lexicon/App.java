@@ -46,9 +46,12 @@ public class App
         // Exercise 6: throwing exceptions from a method that takes email and validates it
 
         try {
-            exercises.exercise6();
+           // exercises.exercise6();
         } catch (IllegalArgumentException e) {
             IO.println("Error: " + e.getMessage());
         }
+
+        // Exercise 8: Try-with-resources for automatic resource management
+        exercises.exercise8();
     }
 }

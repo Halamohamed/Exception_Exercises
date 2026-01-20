@@ -4,6 +4,7 @@ import se.lexicon.Exceptions.InsufficientBalanceException;
 import se.lexicon.Exceptions.OutOfRangeException;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -90,6 +91,20 @@ public class ExceptionsExercises {
             throw new IllegalArgumentException("Invalid email format.");
         } else {
             IO.println("Valid email: " + email);
+        }
+    }
+
+    // Exercise 8: Create a method that writes a String to a file, Try-with-resources to ensure the file is properly closed after writing.
+    public void exercise8() {
+        String content = IO.readln("Enter content to write to file: ");
+        String filePath = "dir/output.txt";
+
+        try (FileWriter writer = new FileWriter(filePath)) {
+
+            writer.write(content);
+            IO.println("Content written to file successfully.");
+        } catch (IOException e) {
+            IO.println("Error: An I/O error occurred while writing to the file.");
         }
     }
 }
