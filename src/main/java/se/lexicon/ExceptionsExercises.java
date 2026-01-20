@@ -3,7 +3,14 @@ package se.lexicon;
 import se.lexicon.Exceptions.InsufficientBalanceException;
 import se.lexicon.Exceptions.OutOfRangeException;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Paths;
 import java.util.InputMismatchException;
+
+import static java.nio.file.Files.newBufferedReader;
 
 public class ExceptionsExercises {
     BankAccount account = new BankAccount(121, 100);
@@ -52,5 +59,28 @@ public class ExceptionsExercises {
         } catch (InsufficientBalanceException e) {
             IO.println("Error: " + e.getMessage());
         }
+    }
+
+    // Exercise 4: read a file and parse its content as integers, handle potential IOExceptions that may occur during file operations.
+    public void exercise4() {
+
+        try {
+            BufferedReader reader = Files.newBufferedReader(Paths.get("dir/numbers.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                try {
+                    int number = Integer.parseInt(line);
+                    IO.println("Read number: " + number);
+                }catch (NumberFormatException e){
+                    IO.println("Error: Invalid number format. ");
+
+                }
+            }
+        }catch (NoSuchFileException e){
+            IO.println("Error: File not found.");
+        } catch (IOException e) {
+            IO.println("Error: An I/O error occurred while reading the file.");
+        }
+
     }
 }

@@ -5,7 +5,7 @@ import se.lexicon.Exceptions.OutOfRangeException;
 import java.util.InputMismatchException;
 
 /**
- * Hello world!
+ * Entry point for the Exceptions Exercises application.
  *
  */
 public class App 
@@ -29,6 +29,19 @@ public class App
             }*/
 
         // Exercise 3: Handle InsufficientBalanceException
-            exercises.exercise3();
+        exercises.exercise3();
+
+        // Exercise 4: Handle NoSuchFileException and IOException
+        exercises.exercise4();
+
+        // Exercise 5: Finally block demonstration from exercise1
+        try {
+             exercises.exercise1();
+        } catch (ArithmeticException e) {
+            IO.println("Error: Division by zero is not allowed.");
+        }finally {
+            IO.println("Execution of exercise5 completed.");
+        }
+
     }
 }
